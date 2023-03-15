@@ -3,6 +3,7 @@ package ru.home.chernyadieva.springsecuritytest.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.home.chernyadieva.springsecuritytest.model.Users;
@@ -16,6 +17,7 @@ import java.util.Optional;
  * Реализуем спец. для этого интерфейс UserDetailsService и переопределяем главный метод загрузки пользователя из БД
  */
 @Service
+@Component
 @Transactional(readOnly = true)
 public class UsersDetailsService implements UserDetailsService {
     private final UsersRepository usersRepository;
