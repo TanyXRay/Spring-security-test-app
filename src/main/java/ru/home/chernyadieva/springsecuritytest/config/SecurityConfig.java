@@ -38,7 +38,9 @@ public class SecurityConfig {
                 .formLogin().loginPage("/auth/login") //своя страница для логина
                 .loginProcessingUrl("/process_login") //security ожидает данные по этому адресу
                 .defaultSuccessUrl("/hello", true) //при удачной загрузке перенаправление на страницу hello
-                .failureUrl("/auth/login?error"); //при неудачной загрузке страницу перенаправит на ошибку
+                .failureUrl("/auth/login?error")//при неудачной загрузке страницу перенаправит на ошибку
+                .and()
+                .logout().logoutUrl("/logout").logoutSuccessUrl("/auth/login");
 
         return http.build();
     }
